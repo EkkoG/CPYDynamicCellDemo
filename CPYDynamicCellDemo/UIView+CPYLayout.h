@@ -37,6 +37,13 @@
 - (UIView *)cpy_toHeight:(CGFloat)height;
 - (UIView *)cpy_toSize:(CGSize)size;
 
+- (NSLayoutConstraint *)cpy_anyTopConstraint;
+- (NSLayoutConstraint *)cpy_anyLeftConstraint;
+- (NSLayoutConstraint *)cpy_anyBottomConstraint;
+- (NSLayoutConstraint *)cpy_anyRightConstraint;
+- (NSLayoutConstraint *)cpy_anyLeadingConstraint;
+- (NSLayoutConstraint *)cpy_anyTrailingConstraint;
+
 - (UIView *)cpy_constraintEqualTo:(NSLayoutAttribute)attribute toView:(UIView *)toView toAttribute:(NSLayoutAttribute)toAttribute constant:(CGFloat)constant;
 @end
 

@@ -114,12 +114,50 @@
     return self;
 }
 
+- (NSLayoutConstraint *)cpy_anyTopConstraint {
+    return [self cpy_anyConstraintOfType:NSLayoutAttributeTop];
+}
+
+- (NSLayoutConstraint *)cpy_anyLeftConstraint {
+    return [self cpy_anyConstraintOfType:NSLayoutAttributeLeft];
+}
+
+- (NSLayoutConstraint *)cpy_anyBottomConstraint {
+    return [self cpy_anyConstraintOfType:NSLayoutAttributeBottom];
+}
+
+- (NSLayoutConstraint *)cpy_anyRightConstraint {
+    return [self cpy_anyConstraintOfType:NSLayoutAttributeRight];
+}
+
+- (NSLayoutConstraint *)cpy_anyLeadingConstraint {
+    return [self cpy_anyConstraintOfType:NSLayoutAttributeLeading];
+}
+
+- (NSLayoutConstraint *)cpy_anyTrailingConstraint {
+    return [self cpy_anyConstraintOfType:NSLayoutAttributeTrailing];
+}
+
+- (NSLayoutConstraint *)cpy_anyConstraintOfType:(NSLayoutAttribute)attribte {
+    if (self.superview) {
+        for (NSLayoutConstraint *each in self.superview.constraints) {
+            if([each isMemberOfClass:[NSLayoutConstraint class]]){
+                if(([each.firstItem isEqual:self] && each.firstAttribute == attribte) || ([each.secondItem isEqual:self] && each.secondAttribute == attribte)){
+                    return each;
+                }
+            }
+        }
+    }
+    return nil;
+}
+
 - (UIView *)cpy_constraintEqualTo:(NSLayoutAttribute)attribute toView:(UIView *)toView toAttribute:(NSLayoutAttribute)toAttribute constant:(CGFloat)constant {
     self.translatesAutoresizingMaskIntoConstraints = NO;
     NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:attribute relatedBy:NSLayoutRelationEqual toItem:toView attribute:toAttribute multiplier:1 constant:constant];
     constraint.active = YES;
     return self;
 }
+
 @end
 
 @implementation NSArray (cpy_layout)

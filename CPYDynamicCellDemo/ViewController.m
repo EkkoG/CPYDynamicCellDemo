@@ -30,14 +30,12 @@ static NSString *const kCPYDemoTableCellReuseIdentifer = @"com.cielpy.cpydymanic
     [self.tableView registerClass:[CPYDemoTableViewCell class] forCellReuseIdentifier:kCPYDemoTableCellReuseIdentifer];
     
     NSMutableArray *arr = [NSMutableArray array];
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 200; i++) {
         CPYUserModel *user = [[CPYUserModel alloc] init];
         user.name = [NSString stringWithFormat:@"%d", i];
         user.tweet = @"有个问题，你们如果要做动态高度的TableViewCell，是怎么隐藏其中一个SubView然后让它改变高度的……这个问题折磨我好久了一直没有头绪";
-        user.retweet = @"You can find the documentation for pdnsd in the doc/ directory. The html\ndocumentation (which I recommend) is in the doc/html/ subdirectory.\nThe pure text documentation (which is generated automatically from the \nhtml documentation) is in doc/txt/.\nThe following documents are available:";
-        if (i == 1) {
-            user.retweet = @"";
-        }
+        NSString *str = @"有个问题，你们如果要做动态高度的TableViewCell，是怎么隐藏其中一个SubView然后让它改变高度的……这个问题折磨我好久了一直没有头绪有个问题，你们如果要做动态高度的TableViewCell，是怎么隐藏其中一个SubView然后让它改变高度的……这个问题折磨我好久了一直没有头绪有个问题，你们如果要做动态高度的TableViewCell，是怎么隐藏其中一个SubView然后让它改变高度的……这个问题折磨我好久了一直没有头绪有个问题，你们如果要做动态高度的TableViewCell，是怎么隐藏其中一个SubView然后让它改变高度的……这个问题折磨我好久了一直没有头绪";
+        user.retweet = [str substringFromIndex:arc4random() % 200];
         [arr addObject:user];
     }
     self.data = [arr copy];
