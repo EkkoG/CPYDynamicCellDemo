@@ -16,6 +16,9 @@
 		962E6D391D752AE9004F9807 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 962E6D371D752AE9004F9807 /* LaunchScreen.storyboard */; };
 		962E6D441D752AE9004F9807 /* CPYDynamicCellDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 962E6D431D752AE9004F9807 /* CPYDynamicCellDemoTests.m */; };
 		962E6D4F1D752AE9004F9807 /* CPYDynamicCellDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 962E6D4E1D752AE9004F9807 /* CPYDynamicCellDemoUITests.m */; };
+		962E6D5E1D752B1D004F9807 /* UIView+CPYLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 962E6D5D1D752B1D004F9807 /* UIView+CPYLayout.m */; };
+		962E6D611D752B33004F9807 /* CPYDemoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 962E6D601D752B33004F9807 /* CPYDemoTableViewCell.m */; };
+		962E6D641D752B4F004F9807 /* CPYUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 962E6D631D752B4F004F9807 /* CPYUserModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,12 @@
 		962E6D4A1D752AE9004F9807 /* CPYDynamicCellDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CPYDynamicCellDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		962E6D4E1D752AE9004F9807 /* CPYDynamicCellDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CPYDynamicCellDemoUITests.m; sourceTree = "<group>"; };
 		962E6D501D752AE9004F9807 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		962E6D5C1D752B1D004F9807 /* UIView+CPYLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CPYLayout.h"; sourceTree = "<group>"; };
+		962E6D5D1D752B1D004F9807 /* UIView+CPYLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CPYLayout.m"; sourceTree = "<group>"; };
+		962E6D5F1D752B33004F9807 /* CPYDemoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPYDemoTableViewCell.h; sourceTree = "<group>"; };
+		962E6D601D752B33004F9807 /* CPYDemoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPYDemoTableViewCell.m; sourceTree = "<group>"; };
+		962E6D621D752B4F004F9807 /* CPYUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPYUserModel.h; sourceTree = "<group>"; };
+		962E6D631D752B4F004F9807 /* CPYUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPYUserModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +116,12 @@
 				962E6D2A1D752AE9004F9807 /* AppDelegate.m */,
 				962E6D2C1D752AE9004F9807 /* ViewController.h */,
 				962E6D2D1D752AE9004F9807 /* ViewController.m */,
+				962E6D5C1D752B1D004F9807 /* UIView+CPYLayout.h */,
+				962E6D5D1D752B1D004F9807 /* UIView+CPYLayout.m */,
+				962E6D621D752B4F004F9807 /* CPYUserModel.h */,
+				962E6D631D752B4F004F9807 /* CPYUserModel.m */,
+				962E6D5F1D752B33004F9807 /* CPYDemoTableViewCell.h */,
+				962E6D601D752B33004F9807 /* CPYDemoTableViewCell.m */,
 				962E6D2F1D752AE9004F9807 /* Main.storyboard */,
 				962E6D351D752AE9004F9807 /* Assets.xcassets */,
 				962E6D371D752AE9004F9807 /* LaunchScreen.storyboard */,
@@ -274,9 +289,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				962E6D2E1D752AE9004F9807 /* ViewController.m in Sources */,
+				962E6D5E1D752B1D004F9807 /* UIView+CPYLayout.m in Sources */,
 				962E6D341D752AE9004F9807 /* CPYDynamicCellDemo.xcdatamodeld in Sources */,
+				962E6D611D752B33004F9807 /* CPYDemoTableViewCell.m in Sources */,
 				962E6D2B1D752AE9004F9807 /* AppDelegate.m in Sources */,
 				962E6D281D752AE9004F9807 /* main.m in Sources */,
+				962E6D641D752B4F004F9807 /* CPYUserModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

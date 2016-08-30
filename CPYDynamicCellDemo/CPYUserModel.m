@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  CPYUserModel.m
 //  CPYDynamicCellDemo
 //
 //  Created by ciel on 16/8/30.
 //  Copyright © 2016年 CPY. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "CPYUserModel.h"
 
-@interface ViewController : UITableViewController
-
+@implementation CPYUserModel
 
 @end
-
