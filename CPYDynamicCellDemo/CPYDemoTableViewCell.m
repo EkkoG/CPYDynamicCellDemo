@@ -51,14 +51,7 @@
 - (void)setUser:(CPYUserModel *)user {
     self.nameLabel.text = user.name;
     self.titleLabel.text = user.tweet;
-    if (user.retweet.length == 0) {
-        [self.contentLabel removeFromSuperview];
-        [self.retweetButton cpy_topToView:self.titleLabel constant:8];
-    }
-    else {
-        self.contentLabel.text = user.retweet;
-        [self.retweetButton cpy_topToView:self.contentLabel constant:8];
-    }
+    self.contentLabel.text = user.retweet;
 }
 
 
