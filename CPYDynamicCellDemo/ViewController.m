@@ -35,6 +35,9 @@ static NSString *const kCPYDemoTableCellReuseIdentifer = @"com.cielpy.cpydymanic
         user.tweet = @"这里是标题区域";
         NSString *str = @"GitHub是一个通过Git进行版本控制的软件源代码托管服务，由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、PJ Hyett和Tom Preston-Werner使用Ruby on Rails编写而成。GitHub同时提供付费账户和免费账户。";
         user.retweet = [str substringToIndex:arc4random() % str.length];
+        if (i == 1) {
+            user.retweet = @"";
+        }
         [arr addObject:user];
     }
     self.data = [arr copy];
