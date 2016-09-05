@@ -12,8 +12,8 @@
 @interface CPYDemoTableViewCell ()
 
 @property (nonatomic, strong) UILabel *nameLabel;
-@property (nonatomic, strong) UILabel *tweetLabel;
-@property (nonatomic, strong) UILabel *retweetLabel;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UILabel *contentLabel;
 @property (nonatomic, strong) UIButton *retweetButton;
 
 @end
@@ -34,26 +34,30 @@
 
 - (void)setup {
     [self.contentView addSubview:self.nameLabel];
-    [self.contentView addSubview:self.tweetLabel];
-    [self.contentView addSubview:self.retweetLabel];
+    [self.contentView addSubview:self.titleLabel];
+    [self.contentView addSubview:self.contentLabel];
     [self.contentView addSubview:self.retweetButton];
     
+    // 用户名
     [[[self.nameLabel cpy_topToSuperview:8] cpy_leftToSuperview:8] cpy_rightToSuperview:8];
-    [[[self.tweetLabel cpy_topToView:self.nameLabel constant:8] cpy_leftToSuperview:8] cpy_rightToSuperview:8];
-    [[[self.retweetLabel cpy_topToView:self.tweetLabel constant:8] cpy_leftToSuperview:8] cpy_rightToSuperview:8];
-    [[self.retweetButton cpy_bottomToSuperview:8] cpy_alignXToSuperview];
+    // 标题
+    [[[self.titleLabel cpy_topToView:self.nameLabel constant:8] cpy_leftToSuperview:8] cpy_rightToSuperview:8];
+    // 内容
+    [[[self.contentLabel cpy_topToView:self.titleLabel constant:8] cpy_leftToSuperview:8] cpy_rightToSuperview:8];
+    // 按钮
+    [[[[self.retweetButton cpy_topToView:self.contentLabel constant:8] cpy_bottomToSuperview:8] cpy_toWidth:80] cpy_alignXToSuperview];
 }
 
 - (void)setUser:(CPYUserModel *)user {
     self.nameLabel.text = user.name;
-    self.tweetLabel.text = user.tweet;
+    self.titleLabel.text = user.tweet;
     if (user.retweet.length == 0) {
-        [self.retweetLabel removeFromSuperview];
-        [self.retweetButton cpy_topToView:self.tweetLabel constant:8];
+        [self.contentLabel removeFromSuperview];
+        [self.retweetButton cpy_topToView:self.titleLabel constant:8];
     }
     else {
-        self.retweetLabel.text = user.retweet;
-        [self.retweetButton cpy_topToView:self.retweetLabel constant:8];
+        self.contentLabel.text = user.retweet;
+        [self.retweetButton cpy_topToView:self.contentLabel constant:8];
     }
 }
 
@@ -64,25 +68,27 @@
 	}
 	return _nameLabel;
 }
-- (UILabel *)tweetLabel {
-	if (!_tweetLabel) {
-        _tweetLabel = [[UILabel alloc] init];
-        _tweetLabel.numberOfLines = 0;
+- (UILabel *)titleLabel {
+	if (!_titleLabel) {
+        _titleLabel = [[UILabel alloc] init];
+        _titleLabel.numberOfLines = 0;
 	}
-	return _tweetLabel;
+	return _titleLabel;
 }
-- (UILabel *)retweetLabel {
-	if (!_retweetLabel) {
-        _retweetLabel = [[UILabel alloc] init];
-        _retweetLabel.numberOfLines = 0;
+- (UILabel *)contentLabel {
+	if (!_contentLabel) {
+        _contentLabel = [[UILabel alloc] init];
+        _contentLabel.numberOfLines = 0;
 	}
-	return _retweetLabel;
+	return _contentLabel;
 }
 - (UIButton *)retweetButton {
 	if (!_retweetButton) {
         _retweetButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_retweetButton setTitle:@"转推" forState:UIControlStateNormal];
+        [_retweetButton setTitle:@"按钮" forState:UIControlStateNormal];
         [_retweetButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        _retweetButton.layer.borderWidth = 1.0f;
+        _retweetButton.layer.borderColor = [[UIColor blackColor] colorWithAlphaComponent:0.5].CGColor;
 	}
 	return _retweetButton;
 }

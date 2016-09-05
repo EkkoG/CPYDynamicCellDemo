@@ -24,7 +24,6 @@ static NSString *const kCPYDemoTableCellReuseIdentifer = @"com.cielpy.cpydymanic
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.backgroundColor = [UIColor whiteColor];
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 550;
     
     [self.tableView registerClass:[CPYDemoTableViewCell class] forCellReuseIdentifier:kCPYDemoTableCellReuseIdentifer];
@@ -32,10 +31,10 @@ static NSString *const kCPYDemoTableCellReuseIdentifer = @"com.cielpy.cpydymanic
     NSMutableArray *arr = [NSMutableArray array];
     for (int i = 0; i < 200; i++) {
         CPYUserModel *user = [[CPYUserModel alloc] init];
-        user.name = [NSString stringWithFormat:@"%d", i];
-        user.tweet = @"有个问题，你们如果要做动态高度的TableViewCell，是怎么隐藏其中一个SubView然后让它改变高度的……这个问题折磨我好久了一直没有头绪";
-        NSString *str = @"有个问题，你们如果要做动态高度的TableViewCell，是怎么隐藏其中一个SubView然后让它改变高度的……这个问题折磨我好久了一直没有头绪有个问题，你们如果要做动态高度的TableViewCell，是怎么隐藏其中一个SubView然后让它改变高度的……这个问题折磨我好久了一直没有头绪有个问题，你们如果要做动态高度的TableViewCell，是怎么隐藏其中一个SubView然后让它改变高度的……这个问题折磨我好久了一直没有头绪有个问题，你们如果要做动态高度的TableViewCell，是怎么隐藏其中一个SubView然后让它改变高度的……这个问题折磨我好久了一直没有头绪";
-        user.retweet = [str substringFromIndex:arc4random() % 200];
+        user.name = [NSString stringWithFormat:@"用户%d", i];
+        user.tweet = @"这里是标题区域";
+        NSString *str = @"GitHub是一个通过Git进行版本控制的软件源代码托管服务，由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、PJ Hyett和Tom Preston-Werner使用Ruby on Rails编写而成。GitHub同时提供付费账户和免费账户。";
+        user.retweet = [str substringToIndex:arc4random() % str.length];
         [arr addObject:user];
     }
     self.data = [arr copy];
