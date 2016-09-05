@@ -45,13 +45,20 @@
     // 内容
     [[[self.contentLabel cpy_topToView:self.titleLabel constant:8] cpy_leftToSuperview:8] cpy_rightToSuperview:8];
     // 按钮
-    [[[[self.retweetButton cpy_topToView:self.contentLabel constant:8] cpy_bottomToSuperview:8] cpy_toWidth:80] cpy_alignXToSuperview];
+    [[[self.retweetButton cpy_bottomToSuperview:8] cpy_toWidth:80] cpy_alignXToSuperview];
 }
 
 - (void)setUser:(CPYUserModel *)user {
     self.nameLabel.text = user.name;
     self.titleLabel.text = user.tweet;
-    self.contentLabel.text = user.retweet;
+    if (user.retweet.length == 0) {
+        [self.contentLabel removeFromSuperview];
+        [self.retweetButton cpy_topToView:self.titleLabel constant:8];
+    }
+    else {
+        self.contentLabel.text = user.retweet;
+        [self.retweetButton cpy_topToView:self.contentLabel constant:8];
+    }
 }
 
 
